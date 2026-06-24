@@ -1,0 +1,61 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "settings"
+    label: "사이트 기본 설정"
+    files:
+      - name: "main"
+        label: "메인 설정"
+        file: "data/settings.json"
+        fields:
+          - label: "메인 배경 사진"
+            name: "hero_image"
+            widget: "image"
+          - label: "메인 제목"
+            name: "hero_title"
+            widget: "string"
+          - label: "메인 부제목"
+            name: "hero_sub"
+            widget: "string"
+          - label: "회사 소개"
+            name: "about_desc"
+            widget: "text"
+          - label: "전화번호"
+            name: "phone"
+            widget: "string"
+          - label: "이메일"
+            name: "email"
+            widget: "string"
+          - label: "주소"
+            name: "address"
+            widget: "string"
+
+  - name: "portfolio"
+    label: "포트폴리오"
+    folder: "data/portfolio"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - label: "프로젝트명"
+        name: "title"
+        widget: "string"
+      - label: "카테고리"
+        name: "category"
+        widget: "select"
+        options: ["OFFICE", "RESIDENTIAL", "COMMERCIAL", "SHOWROOM"]
+      - label: "대표 사진"
+        name: "image"
+        widget: "image"
+      - label: "설명"
+        name: "description"
+        widget: "text"
+        required: false
+      - label: "완공년도"
+        name: "year"
+        widget: "string"
+        required: false
